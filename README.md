@@ -1,7 +1,7 @@
 # R-Analysis-Projects
 Data Analysis Projects with R
 
-### Projects List
-* [Global Demographics Analysis](https://github.com/DaheeMATTANA/R-Analysis-Projects/tree/main/Global%20Demographics%20Analysis)
-* [NBA Statistics (2005-2014 Seasons)](https://github.com/DaheeMATTANA/R-Analysis-Projects/tree/main/NBA%20Analysis)
-* [Film Rating Analysis](https://github.com/DaheeMATTANA/R-Analysis-Projects/tree/main/Film%20Rating%20Analysis)
+### Projects List (Links leading directly to code notebooks)
+* [Global Demographics Analysis](https://github.com/DaheeMATTANA/R-Analysis-Projects/blob/main/Global%20Demographics%20Analysis/Global%20Demographics%20Analysis.R)
+* [NBA Statistics (2005-2014 Seasons)](https://github.com/DaheeMATTANA/R-Analysis-Projects/blob/main/NBA%20Analysis/NBA%20Statistics%20(2005-2014%20Seasons).R)
+* [Film Rating Analysis](https://github.com/DaheeMATTANA/R-Analysis-Projects/blob/main/Film%20Rating%20Analysis/Film%20Rating%20Analysis.R)
