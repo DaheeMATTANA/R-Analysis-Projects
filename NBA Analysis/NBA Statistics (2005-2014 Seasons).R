@@ -123,16 +123,16 @@ round((FieldGoals / FieldGoalAttempts) * 100, 1)
 
 # ----- Visualisation
 
-# Field Goals per Game
-matplot(t(FieldGoals/Games), type = "b", pch = 15:18, col = c(1:4,6))
+# (Plot 1) Field Goals per Game
+matplot(t(FieldGoals/Games), type = "b", pch = 15:18, col = c(1:4,6), main = "Field Goals per Game")
 legend("bottomleft", inset = 0.01, legend = Players, col = c(1:4,6), pch = 15:18, horiz = F)
 
-# Field Goal Accuracy
-matplot(t(FieldGoals/FieldGoalAttempts), type = "b", pch = 15:18, col = c(1:4,6))
+# (Plot 2) Field Goal Accuracy
+matplot(t(FieldGoals/FieldGoalAttempts), type = "b", pch = 15:18, col = c(1:4,6), main = "Field Goal Accuracy")
 legend("bottomleft", inset = 0.01, legend = Players, col = c(1:4,6), pch = 15:18, horiz = F)
 
-# Minutes Played
-matplot(t(MinutesPlayed), type = "b", pch = 15:18, col = c(1:4,6))
+# (Plot 3) Minutes Played
+matplot(t(MinutesPlayed), type = "b", pch = 15:18, col = c(1:4,6), main = "Minutes Played")
 legend("bottomleft", inset = 0.01, legend = Players, col = c(1:4,6), pch = 15:18, horiz = F)
 
 
@@ -144,29 +144,38 @@ myplot <- function(mx, rows = 1:10){
   legend("bottomleft", inset = 0.01, legend = Players[rows], col = c(1:4,6), pch = 15:18, horiz = F)
 }
 
-# Salary
+# (Plot 4) Salary
 myplot(Salary)
 
-# Minutes Played
+# (Plot 5) Minutes Played
 myplot(MinutesPlayed)
 
-# Points Scored
+# (Plot 6) Points Scored
 myplot(Points)
        
-# Normalized In-game Statistics
+# ----- Normalized In-game Statistics
+# (Plot 7) Field Goals per Games
 myplot(FieldGoals / Games)
+
+# (Plot 8) Field Goal Accuracy
 myplot(FieldGoals / FieldGoalAttempts)
+
+# (Plot 9) Field Goal Attempts per Game
 myplot(FieldGoalAttempts / Games)
+
+# (Plot 10) Points Scored per Game
 myplot(Points / Games)
 
-# Minutes Played per Game
+# (Plot 11) Minutes Played per Game
 myplot(MinutesPlayed / Games)
+
+# (Plot 12) Games Played
 myplot(Games)
 
-# Field Goals vs Minutes Played
+# (Plot 13) Field Goals vs Minutes Played
 myplot(FieldGoals/MinutesPlayed)
 
-# Player Style
+# (Plot 14) Player Style
 myplot(Points/FieldGoals)
 
 
@@ -210,11 +219,11 @@ rownames(FTA) <- Players
 
 # ----- Visualisation
 
-# Free Throw Attempts per Game
+# (Plot 15) Free Throw Attempts per Game
 myplot(FTA/Games)
 
-# Accuracy of Free Throws
+# (Plot 16) Accuracy of Free Throws
 myplot(FT/FTA)
 
-# Player Playing Style (2 vs. 3 pts), excluding Free throws
+# (Plot 17) Player Playing Style (2 vs. 3 pts), excluding Free throws
 myplot((Points-FT)/FieldGoals)

@@ -17,62 +17,65 @@ movies$Genre <- factor(movies$Genre)
 # ----- Visualisation
 library(ggplot2)
 
-# Critic Rating vs Audience Rating
+# (Plot 1) Critic Rating vs Audience Rating
 q <- ggplot(data = movies, aes(x = CriticRating, y = AudienceRating, 
                                colour = Genre, size = BudgetMillions))
-q + geom_point(aes(size = CriticRating))
+q + geom_point(aes(size = CriticRating)) + ggtitle("Critic Rating vs Audience Rating")
 
 # Color Scale
 q + geom_point(aes(colour = BudgetMillions))
 
-# Budget vs Audience Rating by Genre
-q + geom_point(aes(x = BudgetMillions)) + xlab("Budget Millions $$$")
+# (Plot 2) Budget vs Audience Rating by Genre
+q + geom_point(aes(x = BudgetMillions)) + xlab("Budget Millions $$$") + ggtitle("Budget vs Audience Rating by Genre")
 
-# Histogram of Budget Distribution by Genre
+# (Plot 3) Histogram of Budget Distribution by Genre
 s <- ggplot(data = movies, aes(x = BudgetMillions))
-s + geom_histogram(binwidth = 10, aes(fill = Genre), colour = "black")
+s + geom_histogram(binwidth = 10, aes(fill = Genre), colour = "black") + ggtitle("Histogram of Budget Distribution by Genre")
 
-# Density Chart of Budget Distribution by Genre
-s + geom_density(aes(fill = Genre), position = "stack")
+# (Plot 4) Density Chart of Budget Distribution by Genre
+s + geom_density(aes(fill = Genre), position = "stack") + ggtitle("Budget Distribution by Genre")
 
-# Genre vs Audience Rating
+# (Plot 5) Genre vs Audience Rating
 u <- ggplot(data = movies, aes(x = Genre, y = AudienceRating,
                                color = Genre))
-u + geom_jitter() + geom_boxplot(size = 1.2, alpha = 0.5)
+u + geom_jitter() + geom_boxplot(size = 1.2, alpha = 0.5) + ggtitle("Genre vs Audience Rating")
 
-# Genre vs Critic Rating
+# (Plot 6) Genre vs Critic Rating
 u2 <- ggplot(data = movies, aes(x = Genre, y = CriticRating,
                                color = Genre))
-u2 + geom_jitter() + geom_boxplot(size = 1.2, alpha = 0.5)
+u2 + geom_jitter() + geom_boxplot(size = 1.2, alpha = 0.5) + ggtitle("Genre vs Critic Rating")
 
-# Budget Distribution by Genre
+# (Plot 7) Budget Distribution by Genre
 v <- ggplot(data = movies, aes(x = BudgetMillions))
 v + geom_histogram(binwidth = 10, aes(fill= Genre), colour = 'black') +
-  facet_grid(Genre~., scales = "free")
+  facet_grid(Genre~., scales = "free") +
+  ggtitle("Budget Distribution by Genre")
 
-# Scatterplots
+
+# ----- Scatterplots
 w <- ggplot(data = movies, aes(x = CriticRating, y = AudienceRating,
                                colour = Genre))
 
-# Critic Rating vs Audience Rating Evolution by Year
+# (Plot 8) Critic Rating vs Audience Rating Evolution by Year
 w + geom_point(size = 3) +
-  facet_grid(.~Year)
+  facet_grid(.~Year) + ggtitle("Critic Rating vs Audience Rating Evolution by Year")
 
-# Critic Rating vs Audience Rating by Genre
+# (Plot 9) Critic Rating vs Audience Rating by Genre
 w + geom_point(size = 3) +
-  facet_grid(Genre~.)
+  facet_grid(Genre~.) + ggtitle("Critic Rating vs Audience Rating by Genre")
 
-# Critic Rating vs Audience Rating by Genre and Year
+# (Plot 10) Critic Rating vs Audience Rating by Genre and Year
 w + geom_point(aes(size = BudgetMillions)) +
   facet_grid(Genre~Year) + geom_smooth() +
-  coord_cartesian(ylim = c(0, 100))
+  coord_cartesian(ylim = c(0, 100)) +
+  ggtitle("Critic Rating vs Audience Rating by Genre and Year")
 
 
 # ----- Theme
 o <- ggplot(data = movies, aes(x = BudgetMillions))
 h <- o + geom_histogram(binwidth = 10, aes(fill = Genre), colour = 'black')
 
-# Movie Budget Distribution
+# (Plot 11) Movie Budget Distribution
 h + xlab("Money Axis") +
   ylab("Number of Movies") +
   ggtitle("Movie Budget Distribution") +
@@ -112,7 +115,7 @@ mvf <- mv[f1 & f2,]
 # ----- Visualisation
 p <- ggplot(data = mvf, aes(x = Genre, y = Gross...US))
 
-# Domestic Gross % in US by Genre
+# (Plot 12) Domestic Gross % in US by Genre
 plot <- p + geom_jitter(aes(size = Budget...mill., colour = Studio), alpha = 0.4) + geom_boxplot(alpha = 0.7)
 plot + xlab("Genre") +
   ylab("Gross % US") +

@@ -9,19 +9,20 @@ stats <- read.csv("Demographic_Data.csv")
 library(ggplot2)
 head(stats)
 
-# Internet Users Distribution
-qplot(data = stats, x = Internet.users)
+# (Plot 1) Internet Users Distribution
+qplot(data = stats, x = Internet.users) + ggtitle("Internet Users Distribution")
 
-# Income Group vs Birth Rate
+# (Plot 2) Income Group vs Birth Rate
 qplot(data = stats, x = Income.Group, y = Birth.rate, size = I(3), 
-      colour = I("blue"))
+      colour = I("blue")) + ggtitle("Income Group vs Birth Rate")
 
-# Income Group vs Birth Rate Boxplot
-qplot(data = stats, x = Income.Group, y = Birth.rate, geom = "boxplot")
+# (Plot 3) Income Group vs Birth Rate Boxplot
+qplot(data = stats, x = Income.Group, y = Birth.rate, geom = "boxplot") +
+  ggtitle("Income Group vs Birth Rate Boxplot")
 
-# Internet Users vs Birth Rate by Income Group
+# (Plot 4) Internet Users vs Birth Rate by Income Group
 qplot(data = stats, x = Internet.users, y = Birth.rate, 
-      size = I(5), colour = Income.Group)
+      size = I(5), colour = Income.Group) + ggtitle("Internet Users vs Birth Rate by Income Group")
 
 
 # ----- New Data 
@@ -46,7 +47,7 @@ merged$Country <- NULL
 
 # ----- Visualisation
 
-# Internet Users vs Birth Rate by Region
+# (Plot 5) Internet Users vs Birth Rate by Region
 qplot(data = merged, x = Internet.users, y = Birth.rate,
       colour = Region, size = I(5), shape = I(19),
       alpha = I(0.6),
@@ -78,13 +79,13 @@ df2013$Life_Expectancy_1960 <- NULL
 
 # ----- Visualisation
 
-# Life expectancy vs Fertility rate by country in 1960
+# (Plot 6) Life expectancy vs Fertility rate by country in 1960
 qplot(data = df1960, x = Fertility.Rate, y = Life_Expectancy_1960, colour = Region,
       size = I(5), shape = I(19),
       alpha = I(0.6),
       main = "Fertility Rate vs Life Expectancy in 1960")
 
-# Life expectancy vs Fertility rate by country in 2013
+# (Plot 7) Life expectancy vs Fertility rate by country in 2013
 qplot(data = df2013, x = Fertility.Rate, y = Life_Expectancy_2013, colour = Region,
       size = I(5), shape = I(17),
       alpha = I(0.6),
